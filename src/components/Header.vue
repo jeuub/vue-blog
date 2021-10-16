@@ -13,7 +13,7 @@
         </li>
       </ul>
     </nav>
-    <form class="search__form" @submit="searchSubmit">
+    <form class="search__form" @submit="searchSubmit" v-if="!tabletView">
       <v-text-field v-model="searchData"></v-text-field>
 
       <v-btn depressed type="submit" class="search__submit">
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       searchData: null,
+      tabletView: false,
     };
   },
   methods: {
@@ -35,6 +36,15 @@ export default {
       e.preventDefault();
       console.log(this.searchData ? this.searchData : '');
     },
+    handleView() {
+      console.log('asd');
+      if (window.innerWidth <= 992) {
+        this.tabletView = true;
+      } else this.tabletView = false;
+    },
+  },
+  created() {
+    this.handleView();
   },
 };
 </script>

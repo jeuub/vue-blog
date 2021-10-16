@@ -26,7 +26,7 @@ p {
   color: #0017ff;
   text-align: center;
   font-family: Oswald, Arial;
-  margin-top: 35vmin;
+  margin-top: 30vmin;
   font-size: 25vmin;
   letter-spacing: 0vmin;
   text-shadow: 1vmin 2vmin black;
