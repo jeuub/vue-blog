@@ -22,14 +22,12 @@ export default {
   },
   methods: {
     returnSource(src) {
-      console.log(`/images/${src}`);
       return `/images/${src}`;
     },
   },
   async mounted() {
     await apiCall('get', 'articles.json').then((response) => {
       this.items = response;
-      console.log(this.items);
     });
   },
 };

@@ -1,6 +1,6 @@
 <template>
-  <ul class="articles__wrapper" v-if="articles">
-    <li class="articles__article article" v-for="article in articles" :key="article.id">
+  <ul class="articles__list" v-if="articles">
+    <li class="articles__item article" v-for="article in articles" :key="article.id">
       <article>
         <h2>{{ article.name }}</h2>
         <p>{{ article.shortDesc }}</p>
@@ -21,14 +21,13 @@ export default {
   async mounted() {
     await apiCall('get', 'articles.json').then((response) => {
       this.articles = response;
-      console.log('loaded');
     });
   },
 };
 </script>
 
 <style>
-.article {
+.articles__item {
   background: #272727;
   margin: 5px 0;
   padding: 8px;
@@ -36,7 +35,7 @@ export default {
   border-radius: 8px;
   break-inside: avoid;
 }
-.articles__wrapper {
+.articles__list {
   list-style-type: none;
   padding: 24px;
   columns: 3;
@@ -48,12 +47,12 @@ export default {
   color: white;
 }
 @media screen and (max-width: 1010px) {
-  .articles__wrapper {
+  .articles__list {
     columns: 2;
   }
 }
 @media screen and (max-width: 768px) {
-  .articles__wrapper {
+  .articles__list {
     columns: 1;
   }
 }

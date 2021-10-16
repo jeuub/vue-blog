@@ -1,11 +1,11 @@
 <template>
-  <div class="article__wrapper-one">
-    <article class="article-one" v-if="article">
-      <h1 class="article__title-one">{{ article.name }}</h1>
-      <div class="article__date-one"><b> Date: </b>{{ article.date }}</div>
-      <p class="article__text-one"><b> Description: </b> {{ article.desc }}</p>
+  <div class="article__wrapper">
+    <article class="article-page" v-if="article">
+      <h1 class="article-page__title">{{ article.name }}</h1>
+      <div class="article-page__date"><b> Date: </b>{{ article.date }}</div>
+      <p class="article-page__text"><b> Description: </b> {{ article.desc }}</p>
       <img :src="'/images/' + article.full_image" :alt="article.name + 'card image'" />
-      <router-link class="article__link-one" to="/articles">Ко всем новостям</router-link>
+      <router-link class="article-page__link" to="/articles">Ко всем новостям</router-link>
     </article>
     <div class="not_found" v-if="!loaded">Статья не найдена</div>
   </div>
@@ -21,27 +21,26 @@ export default {
     await apiCall('get', 'articles.json').then((response) => {
       this.article = response.find((item) => String(item.id) === this.$route.params.id);
       this.loaded = !!this.article;
-      console.log(this.article);
     });
   },
 };
 </script>
 
-<style scoped>
-.article-one {
+<style>
+.article-page {
   width: 80%;
   margin: 0 auto;
 }
-.article__title-one {
+.article-page__title {
   text-align: center;
 }
-.article__wrapper-one {
+.article-page__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100%;
 }
-.article-one img {
+.article-page img {
   width: 100%;
 }
 </style>

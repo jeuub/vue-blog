@@ -34,10 +34,8 @@ export default {
   methods: {
     searchSubmit(e) {
       e.preventDefault();
-      console.log(this.searchData ? this.searchData : '');
     },
     handleView() {
-      console.log('asd');
       if (window.innerWidth <= 992) {
         this.tabletView = true;
       } else this.tabletView = false;
