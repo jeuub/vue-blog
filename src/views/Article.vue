@@ -8,14 +8,19 @@
       <router-link class="article-page__link" to="/articles">Ко всем новостям</router-link>
     </article>
     <div class="not_found" v-if="!loaded">Статья не найдена</div>
+    <Comments />
   </div>
 </template>
 <script>
 import { apiCall } from '../services/api';
+import Comments from '@/components/Comments.vue';
 
 export default {
   data() {
     return { article: null, loaded: false };
+  },
+  components: {
+    Comments,
   },
   async mounted() {
     await apiCall('get', 'articles.json').then((response) => {
