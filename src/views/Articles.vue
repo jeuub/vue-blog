@@ -19,7 +19,7 @@ export default {
     return { articles: null };
   },
   async mounted() {
-    await apiCall('get', 'articles.json').then((response) => {
+    await apiCall('get', 'articles').then((response) => {
       this.articles = response;
     });
   },

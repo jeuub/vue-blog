@@ -39,9 +39,12 @@ export default {
 </script>
 
 <style>
-.comment-form {
+.comment-form__wrapper {
   width: 80%;
   margin: 0 auto;
+}
+.comment-form {
+  max-width: 500px;
 }
 .validation-error {
   width: 80%;

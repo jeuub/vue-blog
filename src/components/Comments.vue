@@ -19,14 +19,22 @@ export default {
     CommentForm,
   },
   async mounted() {
-    await apiCall('get', 'comments.json').then((response) => {
+    await apiCall('get', `articles/${this.$route.params.id}/comments`).then((response) => {
       this.comments = response;
     });
   },
   methods: {
-    addComment(data) {
-      this.comments.push({ id: this.comments.length + 1, name: data.name, comment: data.comment });
-      console.log(this.comments);
+    async addComment(data) {
+      this.comments.push({
+        id: this.comments.length + 1,
+        user_name: data.name,
+        comment: data.comment,
+      });
+
+      await apiCall('post', `articles/${this.$route.params.id}/comments`, {
+        user_name: data.name,
+        comment: data.comment,
+      });
     },
   },
 };

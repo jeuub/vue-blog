@@ -23,7 +23,7 @@ export default {
     Comments,
   },
   async mounted() {
-    await apiCall('get', 'articles.json').then((response) => {
+    await apiCall('get', 'articles').then((response) => {
       this.article = response.find((item) => String(item.id) === this.$route.params.id);
       this.loaded = !!this.article;
     });

@@ -2,7 +2,7 @@
   <div class="comments">
     <h2>Коментарии:</h2>
     <div v-for="(comment, idx) in comments" :key="idx">
-      <h3>{{ comment.name }}</h3>
+      <h3>{{ comment.user_name }}</h3>
       <p>{{ comment.comment }}</p>
     </div>
   </div>
@@ -15,7 +15,6 @@ export default {
   props: { comments: Array },
 
   mounted() {
-    console.log(this.comments);
   },
 };
 </script>
