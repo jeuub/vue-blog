@@ -19,6 +19,13 @@ export default {
 </script>
 
 <style scoped>
+div {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 h1 {
   text-align: center;
 }
@@ -26,7 +33,6 @@ p {
   color: #0017ff;
   text-align: center;
   font-family: Oswald, Arial;
-  margin-top: 30vmin;
   font-size: 25vmin;
   letter-spacing: 0vmin;
   text-shadow: 1vmin 2vmin black;

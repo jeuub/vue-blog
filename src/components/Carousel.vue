@@ -26,7 +26,7 @@ export default {
     },
   },
   async mounted() {
-    await apiCall('get', 'articles.json').then((response) => {
+    await apiCall('get', 'articles').then((response) => {
       this.items = response;
     });
   },
